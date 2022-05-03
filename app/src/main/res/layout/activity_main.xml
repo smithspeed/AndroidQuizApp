@@ -12,14 +12,29 @@
         android:layout_height="match_parent"
         tools:context=".MainActivity">
 
-        <fragment
+        <androidx.drawerlayout.widget.DrawerLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/navControllerFragment"
-            android:name="androidx.navigation.fragment.NavHostFragment"
-            app:defaultNavHost="true"
-            app:navGraph="@navigation/navigation"
-            />
+            android:id="@+id/drawerLayout">
+
+            <fragment
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/navControllerFragment"
+                android:name="androidx.navigation.fragment.NavHostFragment"
+                app:defaultNavHost="true"
+                app:navGraph="@navigation/navigation"
+                />
+
+            <com.google.android.material.navigation.NavigationView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:headerLayout="@layout/nav_header"
+                app:menu="@menu/nav_drawer"
+                android:id="@+id/navView"
+                android:layout_gravity="start"/>
+
+        </androidx.drawerlayout.widget.DrawerLayout>
 
     </LinearLayout>
 </layout>
